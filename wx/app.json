@@ -1,28 +1,42 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/donation/donation",
+    "pages/user/user"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "木子公益",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "list": [
-      {
+    "backgroundColor": "#f9f9f9",
+    "selectedColor":"#ff0000",
+    "borderStyle":"white",
+    "list": [{
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "iconPath":"images/logo_home.png",
+        "selectedIconPath":"images/logo_home_a.png"
       },
       {
         "pagePath": "pages/donation/donation",
-        "text": "捐公益币"
+        "text": "捐公益币",
+        "iconPath":"images/logo_donation.png",
+        "selectedIconPath":"images/logo_donation_a.png"
       },
       {
         "pagePath": "pages/user/user",
-        "text": "我的"
+        "text": "我的",
+        "iconPath":"images/logo_user.png",
+        "selectedIconPath":"images/logo_user_a.png"
       }
     ]
+
+  },
+  "networkTimeout": {
+    "request": 100000,
+    "downloadFile": 100000
   }
 }
