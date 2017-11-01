@@ -1,13 +1,44 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <view class="wrapper wrapper-friends">
+      <view class="wrapper-title"><text>好友捐助项目</text></view>
+      <view class="wrapper-block friend-block flex" wx:for="{{friendJoin}}" wx:key="{{item.id}}">
+        <view class="block-img">
+          <image src="{{item.image}}" mode="aspectFill"></image>
+        </view>
+        <view class="block-content">
+          <view class="content-title">
+            <text>{{item.title}}</text>
+          </view>
+          <view class="content-desc">
+            <text>{{item.desc}}</text>          
+          </view>
+          <view class="content-join flex-jcsb">
+            <text>{{item.friends.length}}位好友已捐款</text>
+              <view>
+                <image wx:for="{{item.friends}}" wx:for-item="friend" wx:key="{{friend.id}}" src="{{friend.avatar}}" mode="aspectFill"></image>
+              </view>
+          </view>
+        </view>
+      </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="wrapper wrapper-list" wx:for="{{donationList}}" wx:for-item="donation" wx:key="donation.id">
+      <view class="wrapper-title"><text>{{donation.title}}</text></view>
+      <view class="wrapper-block friend-block flex" wx:for="{{donation.list}}" wx:for-item="dItem" wx:key="{{item.id}}">
+        <view class="block-img">
+          <image src="{{dItem.image}}" mode="aspectFill"></image>
+        </view>
+        <view class="block-content">
+          <view class="content-title">
+            <text>{{dItem.title}}</text>
+          </view>
+          <view class="content-desc">
+            <text>{{dItem.desc}}</text>          
+          </view>
+          <view class="content-join flex-jcsb">
+            <text>{{dItem.num}}位爱心网友已捐助</text>
+          </view>
+        </view>
+      </view>
   </view>
 </view>
